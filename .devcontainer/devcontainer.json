@@ -27,7 +27,7 @@
 	// }
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": ".devcontainer/postCreateCommand.sh -p ${containerEnv:DEV_CERT_PASSWORD}"
+	"postCreateCommand": ".devcontainer/postCreateCommand.sh -f ${containerEnv:DEV_CERT_FILENAME} -p ${containerEnv:DEV_CERT_PASSWORD}"
 	
 	// Configure tool-specific properties.
 	// "customizations": {},

@@ -13,8 +13,6 @@
     <RootNamespace>react_wiki</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>b54ed042-1195-4e70-970e-d9fa6714cfea</UserSecretsId>
-    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <DockerfileRunArguments>-v "$(HOME)/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro"</DockerfileRunArguments>
   </PropertyGroup>
 
   <ItemGroup>
