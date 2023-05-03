@@ -11,7 +11,10 @@
 		},
 		"ghcr.io/devcontainers/features/node:1": {}
 	},
-
+	"mounts": [
+		"source=${localEnv:HOME}/.aspnet/https,target=/home/vscode/.aspnet/https,type=bind,consistency=cached"
+	],
+	"runArgs": ["--env-file", ".devcontainer/secrets.env"],
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 
@@ -27,7 +30,9 @@
 	//"postCreateCommand": ". ${NVM_DIR}/nvm.sh && nvm install --lts",
 	"postCreateCommand": "cd ClientApp && npm install",
 
-	"postStartCommand": "dotnet dev-certs https --trust -q"
+	 "postStartCommand": [
+	 "dotnet dev-certs https --clean --import /home/vscode/.aspnet/https/aspnetapp.pfx -p ${DEV_CERT_PASSWORD} "
+	 ]
 	// Configure tool-specific properties.
 	// "customizations": {},
 
