@@ -27,12 +27,8 @@
 	// }
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	//"postCreateCommand": ". ${NVM_DIR}/nvm.sh && nvm install --lts",
-	"postCreateCommand": "cd ClientApp && npm install",
-
-	 "postStartCommand": [
-	 "dotnet dev-certs https --clean --import /home/vscode/.aspnet/https/aspnetapp.pfx -p ${DEV_CERT_PASSWORD} "
-	 ]
+	"postCreateCommand": ".devcontainer/postCreateCommand.sh -p ${containerEnv:DEV_CERT_PASSWORD}"
+	
 	// Configure tool-specific properties.
 	// "customizations": {},
 
