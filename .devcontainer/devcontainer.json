@@ -1,37 +1,45 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/dotnet
 {
-	"name": "C# (.NET)",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/dotnet:0-7.0",
-	"features": {
-		"ghcr.io/devcontainers/features/dotnet:1": {
-			"installUsingApt": true,
-			"version": "7"
-		},
-		"ghcr.io/devcontainers/features/node:1": {}
-	},
-	"mounts": [
-		"source=${localEnv:HOME}/.aspnet/https,target=/home/vscode/.aspnet/https,type=bind,consistency=cached"
-	],
-	"runArgs": ["--env-file", ".devcontainer/secrets.env"],
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
+  "name": "C# (.NET)",
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  // "image": "mcr.microsoft.com/devcontainers/dotnet:0-7.0",
+  "build": { "dockerfile": "Dockerfile" },
+  "features": {
+    "ghcr.io/devcontainers/features/dotnet:1": {
+      "installUsingApt": true,
+      "version": "7"
+    },
+    "ghcr.io/devcontainers/features/node:1": {}
+  },
+  "mounts": [
+    "source=${localEnv:HOME}/.aspnet/https,target=/home/vscode/.aspnet/https,type=bind,consistency=cached"
+  ],
+  "runArgs": ["--env-file", ".devcontainer/secrets.env"],
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  // "features": {},
 
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [5000, 5001],
-	// "portsAttributes": {
-	//		"5001": {
-	//			"protocol": "https"
-	//		}
-	// }
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [5000, 5001],
+  // "portsAttributes": {
+  //		"5001": {
+  //			"protocol": "https"
+  //		}
+  // }
 
-	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": ".devcontainer/postCreateCommand.sh -f ${containerEnv:DEV_CERT_FILENAME} -p ${containerEnv:DEV_CERT_PASSWORD}"
-	
-	// Configure tool-specific properties.
-	// "customizations": {},
+  // Use 'postCreateCommand' to run commands after the container is created.
+"postCreateCommand": ".devcontainer/postCreateCommand.sh -f ${containerEnv:DEV_CERT_FILENAME} -p ${containerEnv:DEV_CERT_PASSWORD}",
+"customizations": {
+	"vscode": {
+		"extensions": [
+			"dbaeumer.vscode-eslint"
+		]
+	}
+}
 
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+  // Configure tool-specific properties.
+  // "customizations": {},
+
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "root"
 }
