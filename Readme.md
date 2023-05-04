@@ -22,4 +22,10 @@ dotnet dev-certs https --trust
 ## Set ASPNETCORE_DEV_CERT environment variable
 
 Add this environment variable to point to your https cert path.
+```
 ASPNETCORE_DEV_CERT=[path to .aspnet/dev-certs/https]
+```
+
+# Troubleshooting
+## OmniSharp
+If the OmniSharp server fails to start up, try setting the "Omnisharp: Sdk Path" setting to `/usr/local/dotnet`

@@ -6,10 +6,7 @@
   // "image": "mcr.microsoft.com/devcontainers/dotnet:0-7.0",
   "build": { "dockerfile": "Dockerfile" },
   "features": {
-    "ghcr.io/devcontainers/features/dotnet:1": {
-      "installUsingApt": true,
-      "version": "7"
-    },
+    "ghcr.io/devcontainers/features/dotnet:1": {"version": "7"},
     "ghcr.io/devcontainers/features/node:1": {}
   },
   "mounts": [
