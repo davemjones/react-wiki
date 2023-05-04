@@ -13,7 +13,7 @@
     "ghcr.io/devcontainers/features/node:1": {}
   },
   "mounts": [
-    "source=${localEnv:HOME}/.aspnet/https,target=/home/vscode/.aspnet/https,type=bind,consistency=cached"
+    "source=${localEnv:ASPNETCORE_DEV_CERT},target=/home/vscode/.aspnet/https,type=bind,consistency=cached"
   ],
   "runArgs": ["--env-file", ".devcontainer/secrets.env"],
   // Features to add to the dev container. More info: https://containers.dev/features.
@@ -28,14 +28,12 @@
   // }
 
   // Use 'postCreateCommand' to run commands after the container is created.
-"postCreateCommand": ".devcontainer/postCreateCommand.sh -f ${containerEnv:DEV_CERT_FILENAME} -p ${containerEnv:DEV_CERT_PASSWORD}",
-"customizations": {
-	"vscode": {
-		"extensions": [
-			"dbaeumer.vscode-eslint"
-		]
-	}
-}
+  "postCreateCommand": ".devcontainer/postCreateCommand.sh -f ${containerEnv:DEV_CERT_FILENAME} -p ${containerEnv:DEV_CERT_PASSWORD}",
+  "customizations": {
+    "vscode": {
+      "extensions": ["dbaeumer.vscode-eslint"]
+    }
+  }
 
   // Configure tool-specific properties.
   // "customizations": {},
